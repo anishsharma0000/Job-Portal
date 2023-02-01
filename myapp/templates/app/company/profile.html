@@ -1,0 +1,134 @@
+{% extends "app/company/base1.html" %}
+{% block content %}
+                <div class="bg-overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Company Profile</h3></div>
+                                    <div class="card-body">
+                                        <form method="POST" action="{% url 'updatecompanyprofile' pk=request.session.id %}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" type="text" name="firstname" value="{{request.session.firstname}}" placeholder="Enter your first name" />
+                                                        <label for="inputFirstName">First name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="inputLastName" type="text" name="lastname" value="{{request.session.lastname}}" placeholder="Enter your last name" />
+                                                        <label for="inputLastName">Last name</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" name="email" value="{{user.Email}}" placeholder="name@example.com" />
+                                                <label for="inputEmail">Email address</label>
+                                            </div>
+
+                                            {% if comp.Company_name %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" name="companyname" value="{{comp.Company_name}}"  placeholder="name@example.com" />
+                                                <label for="inputEmail">Company Name</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" name="companyname"  placeholder="name@example.com" />
+                                                <label for="inputEmail">Company Name</label>
+                                            </div>
+                                            {% endif %}
+
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    {% if comp.State %}
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="" type="text" name="state" value="{{ comp.State}}" placeholder="State" />
+                                                        <label for="inputPassword">State</label>
+                                                    </div>
+                                                    {% else %}
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="" type="text" name="state" placeholder="State" />
+                                                        <label for="inputPassword">State</label>
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col-md-6">
+                                                    {% if comp.City %}
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="" type="text" name="city" value="{{comp.City}}" placeholder="City" />
+                                                        <label for="inputPasswordConfirm">City</label>
+                                                    </div>
+                                                    {% else %}
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="" type="text" name="city" placeholder="City" />
+                                                        <label for="inputPasswordConfirm">City</label>
+                                                    </div>
+                                                    {% endif %}
+                                                </div>
+                                            </div>
+
+                                            {% if comp.Contact %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="contact" value="{{comp.Contact}}" placeholder="Company Contact" />
+                                                <label for="inputEmail">Company Contact</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="contact"  placeholder="Company Contact" />
+                                                <label for="inputEmail">Company Contact</label>
+                                            </div>
+                                            {% endif %}
+                                            
+                                            {% if comp.Website %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="website" value="{{comp.Website}}" placeholder="Company Website" />
+                                                <label for="inputEmail">Company Website</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="website"  placeholder="Company Website" />
+                                                <label for="inputEmail">Company Website</label>
+                                            </div>
+                                            {% endif %}
+
+                                            {% if comp.Address %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="address" value="{{comp.Address}}" placeholder="Company address" />
+                                                <label for="inputEmail">Address</label>
+                                            </div>
+                                            {% else %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="address" placeholder="Company address" />
+                                                <label for="inputEmail">Address</label>
+                                            </div>
+                                            {% endif %}
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="description" placeholder="Company address" />
+                                                <label for="inputEmail">Description</label>
+                                            </div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="file" name="image" placeholder="Company address" />
+                                                <label for="inputEmail">Company  Logo</label>
+                                            </div>
+                                            
+                                            <div class="form-group mb-0">
+                                                <div class="input-group mb-0">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary submitBnt" type="submit" id="newssubscribebtn">save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}

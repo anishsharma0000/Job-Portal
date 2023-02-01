@@ -1,0 +1,98 @@
+{% extends "app/company/base1.html" %}
+{% block content %}
+                <div class="bg-overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Job Post Form</h3></div>
+                                    {% if msg %}
+                                        <h4 style="color:green">{{msg}}</h4>
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <form method="POST" action="{% url 'jobpost' pk=request.session.id %}" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                        
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputFirstName" type="text" name="jobname"  placeholder="Enter your first name" />
+                                                <label for="inputFirstName">Job Name</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputLastName" type="text" name="companyname"  placeholder="Enter your last name" />
+                                                <label for="inputLastName">Company Name</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" name="companydaddress" value="{{user.Email}}" placeholder="name@example.com" />
+                                                <label for="inputEmail">Company Address</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" name="companycontact"  placeholder="name@example.com" />
+                                                <label for="inputEmail">Company Contact</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="text" name="companyemail"  placeholder="name@example.com" />
+                                                <label for="inputEmail">Company Email</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="companywebsite"  placeholder="Company Website" />
+                                                <label for="inputEmail">Company Website</label>
+                                            </div>
+
+                                           <div class="form-floating mb-3">
+                                                <textarea class="form-control" id="" type="text" name="jobdescription" placeholder=""></textarea>
+                                                <label class="text-muted">Job Description</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="qualification"  placeholder="Company Website" />
+                                                <label for="inputEmail">Qualification</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="responbilities"  placeholder="Company Website" />
+                                                <label for="inputEmail">Responbilities</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="location"  placeholder="Company Website" />
+                                                <label for="inputEmail">Location</label>
+                                            </div>
+                                            
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="salarypackage"  placeholder="Company Website" />
+                                                <label for="inputEmail">Salary Package</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="text" name="experience"  placeholder="Company Website" />
+                                                <label for="inputEmail">Experience</label>
+                                            </div>
+
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="" type="file" name="image" placeholder="Company address" />
+                                                <label for="inputEmail">Company  Logo</label>
+                                            </div>
+                                            
+                                            <div class="form-group mb-0">
+                                                <div class="input-group mb-0">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary submitBnt" type="submit" id="newssubscribebtn">save</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{% endblock %}

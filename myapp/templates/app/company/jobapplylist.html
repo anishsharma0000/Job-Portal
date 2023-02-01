@@ -1,0 +1,60 @@
+{% extends 'app/company/base1.html' %}
+
+{% block content %}
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Job Post List</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Job Post List</li>
+                        </ol>
+                        
+                        <div class="card mb-4">
+
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>Job Name</th>
+                                            <th>Condidate Name</th>
+                                            <!--<th>Experience</th>
+                                            <th>Location</th>-->
+                                            <th>Minimum Salary</th>
+                                            <th>Maximum Salary</th>
+                                            <!--<th>Contact</th>-->
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Job Name</th>
+                                            <th>Condidate Name</th>
+                                            <!--<th>Experience</th>
+                                            <th>Location</th>-->
+                                            <th>Minimum Salary</th>
+                                            <th>Maximum Salary</th>
+                                            <th>Contact</th>
+                                        </tr>
+                                    </tfoot>
+
+                                    {% if all_job %}
+                                    <tbody>
+                                        {% for i in all_job %}
+                                        <tr>
+                                            <td>{{i.Job.Job_name}}</td>
+                                            <td>{{i.Condidate.Firstname}} {{i.Condidate.Lastname}}</td>
+                                            
+                                            <!--<td>{{i.Experience}}</td>-->
+                                            <td>{{i.Min_salary}}</td>
+                                            <td>{{i.Max_salary}}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+{% endblock %}
